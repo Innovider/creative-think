@@ -30,8 +30,8 @@ $('.btn').click(function () {
 
         let randomDestination = Math.round(Math.random() * 3);
 
-        $('.play').html(`<audio id="soundcard" src="${destination[randomDestination]}.mp3"></audio>`);
-        document.getElementById("soundcard").play();
+        $('.play').html(`<audio  autoplay autobuffer id="soundcard"><source src="${destination[randomDestination]}.ogg" /><source src="${destination[randomDestination]}.mp3" /></audio>`);
+        $("#soundcard").play();
 
         if (randomDestination == 0) {
             position = position - 10;
@@ -52,9 +52,9 @@ $('.btn').click(function () {
         if (i == 10 || position.toString().indexOf(0) > -1 || position.toString().indexOf(6) > -1) {
             clearInterval(interval);
             setTimeout(function () {
-                $('.play').html(`<audio id="soundcard" src="стоп.mp3"></audio>`);
-                document.getElementById("soundcard").play();
-            },3000)
+                $('.play').html(`<audio  autoplay autobuffer id="soundcard"><source src="stop.ogg" /><source src="stop.mp3" /></audio>`);
+                $("#soundcard").play();
+            }, 3000)
         }
     }, 3000);
 });
